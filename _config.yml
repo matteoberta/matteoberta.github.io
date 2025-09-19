@@ -51,15 +51,18 @@ additional_links:
 # About Section
 # about_title: About Me (Use this to override about section title)
 about_profile_image: Directory of profile image (eg. images/profile.jpg)
+
+image: ![alt text](C:\Users\matbe\Documents\GitHub\matteoberta.github.io\images\Schiele 2.jpeg "Schiele")
+
 about_content: | # this will include new lines to allow paragraphs
   A working example of the butterfly effect. <mark>Chaotic Good</mark>. <mark>Data Scientist</mark> with a strong interest in <mark>Chaos Theory for Neural Networks</mark> and <mark>Natural Language Processing</mark>.
-
+  
 
   You can even add paragraphs by using empty lines like this and add anything else [markdown](https://www.markdownguide.org/getting-started#what-is-markdown) supports such as
     - Lists
     - Tables
     - <a href="google.com">Links</a>
-    - Images ![alt text](/images/landscape-trees.jpg "Trees")
+  
 
 content:
   - title: Projects # Title for the section
