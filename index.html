@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <meta name="description" content="Portfolio of Your Name. Projects at the edge of order and chaos." />
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --card: #11131a;
+      --text: #e7e9ee;
+      --muted: #b1b6c6;
+      --accent-1: #5682B1; /* user's color */
+      --accent-2: #8C00FF; /* user's color */
+      --ring: 0 0 0 2px color-mix(in srgb, var(--accent-2) 60%, transparent);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; background: radial-gradient(1000px 800px at 70% -10%, #141827, transparent 60%), var(--bg);
+      color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.55; overflow-x: hidden;
+    }
+    a { color: var(--accent-1); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header {
+      position: sticky; top: 0; z-index: 20; backdrop-filter: blur(6px);
+      background: color-mix(in srgb, var(--bg) 65%, transparent);
+      border-bottom: 1px solid #1a1d27; 
+    }
+    .nav {
+      max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 20px;
+    }
+    .brand { display: flex; gap: 10px; align-items: center; font-weight: 700; letter-spacing: 0.2px; }
+    .brand svg { width: 22px; height: 22px; }
+    .nav-links { display: flex; gap: 14px; align-items: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 14px;
+      background: linear-gradient(90deg, color-mix(in srgb, var(--accent-1) 35%, transparent), color-mix(in srgb, var(--accent-2) 35%, transparent));
+      border: 1px solid color-mix(in srgb, var(--accent-1) 40%, #1b2330);
+      color: var(--text); text-decoration: none; font-weight: 600;
+    }
+    .btn:hover { filter: brightness(1.06); }
+    .pill { padding: 6px 10px; border-radius: 999px; background: #171a25; border: 1px solid #212633; color: var(--muted); font-size: 12px; }
+
+    .hero {
+      position: relative; isolation: isolate;
+      max-width: 1100px; margin: 0 auto; padding: 64px 20px 40px 20px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px;
+      align-items: center;
+    }
+    .bg-canvas { position: fixed; inset: 0; z-index: -1; opacity: 0.8; }
+
+    .tagline { font-size: clamp(28px, 5vw, 56px); font-weight: 800; letter-spacing: -0.8px; line-height: 1.05; }
+    .tagline .accent { background: linear-gradient(90deg, var(--accent-1), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .subtitle { margin-top: 14px; color: var(--muted); font-size: clamp(14px, 2vw, 18px); }
+
+    .id-card { display: grid; grid-template-columns: 88px 1fr; gap: 14px; align-items: center; margin-top: 24px; }
+    .avatar { width: 88px; height: 88px; border-radius: 50%; border: 2px solid color-mix(in srgb, var(--accent-1) 50%, #222);
+      background: #0f121a center/cover no-repeat; }
+    .name { font-size: 22px; font-weight: 700; }
+
+    .grid { max-width: 1100px; margin: 0 auto; padding: 0 20px 80px; display: grid; gap: 18px; grid-template-columns: repeat(12, 1fr); }
+    .card { grid-column: span 12; background: linear-gradient(180deg, #0f121a, #0c0f15);
+      border: 1px solid #1a1f2b; border-radius: 18px; padding: 18px; box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+    .card h3 { margin: 6px 0 10px; font-size: 18px; font-weight: 700; }
+    .card p { margin: 0; color: var(--muted); }
+
+    @media (min-width: 900px) {
+      .projects { grid-column: span 8; }
+      .about { grid-column: span 4; }
+    }
+
+    .projects-list { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .project-card { background: #0f121a; border: 1px solid #1c2230; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+    .project-card .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .project-card .tag { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 12px; background: #0b1018; border: 1px solid #1e2533; color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+
+    /* Tabs + citations */
+    .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .tab { padding: 8px 12px; border-radius: 999px; background: #131827; border: 1px solid #1f2740; color: var(--muted); cursor: pointer; font-weight: 600; }
+    .tab.active { color: var(--text); background: linear-gradient(90deg, color-mix(in srgb, var(--accent-1) 18%, transparent), color-mix(in srgb, var(--accent-2) 18%, transparent)); }
+    .citations { margin-top: 10px; border-top: 1px dashed #283044; padding-top: 10px; font-size: 13px; color: var(--muted); }
+    .citations h4 { margin: 0 0 6px; font-size: 12px; letter-spacing: 0.3px; color: #9fb1d0; }
+    .citations ul { margin: 0; padding-left: 18px; }
+    .citations li { margin: 2px 0; word-break: break-word; }
+
+    footer { border-top: 1px solid #171b26; color: #9ca3b2; font-size: 14px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 18px 20px 60px; display: flex; gap: 10px; justify-content: space-between; align-items: center; }
+
+    .lang-toggle { display: inline-flex; border-radius: 999px; background: #131826; border: 1px solid #1f2740; overflow: hidden; }
+    .lang-toggle button { padding: 8px 12px; background: transparent; border: none; color: var(--muted); cursor: pointer; font-weight: 600; }
+    .lang-toggle button.active { color: var(--text); background: linear-gradient(90deg, color-mix(in srgb, var(--accent-1) 18%, transparent), color-mix(in srgb, var(--accent-2) 18%, transparent)); }
+
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+  </style>
+</head>
+<body>
+  <canvas class="bg-canvas" id="bifurcation"></canvas>
+  <header>
+    <nav class="nav" aria-label="Main">
+      <div class="brand" onclick="location.hash=''" style="cursor:pointer">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="1.5" opacity="0.7"/></svg>
+        <span id="brand">Your Name</span>
+      </div>
+      <div class="nav-links">
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#passions" data-i18n="nav.passions">Passions</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#contact" data-i18n="nav.contact" class="btn">Contact</a>
+        <div class="lang-toggle" role="radiogroup" aria-label="Language">
+          <button id="lang-en" class="active" role="radio" aria-checked="true">EN</button>
+          <button id="lang-it" role="radio" aria-checked="false">IT</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="pill" data-i18n="hero.pill">Between order and chaos</div>
+        <h1 class="tagline">
+          <span id="your-name">Your Name</span>
+          <span class="accent" data-i18n="hero.tagline">— patterns emerge where noise meets meaning.</span>
+        </h1>
+        <p class="subtitle" data-i18n="hero.sub">Exploring logistic maps, neural dynamics, and human‑centered systems through code.</p>
+        <div class="id-card">
+          <div class="avatar" id="avatar" aria-label="Your photo" title="Your photo"></div>
+          <div>
+            <div class="name" id="name-slot">Your Name</div>
+            <div style="color:var(--muted)" data-i18n="hero.role">Creative Engineer · ML / Systems · Research‑minded</div>
+          </div>
+        </div>
+      </div>
+      <div class="card" role="region" aria-labelledby="recap-title">
+        <h3 id="recap-title" data-i18n="recap.title">Brief Recap</h3>
+        <p data-i18n="recap.text">A concise overview of selected works—interactive systems, ML tools, and experimental visualizations—linking theory to practice.</p>
+      </div>
+    </section>
+
+    <section id="projects" class="grid" aria-labelledby="projects-title">
+      <div class="card projects">
+        <h2 id="projects-title" style="margin:4px 0 12px" data-i18n="projects.title">Projects</h2>
+        <div id="projects-list" class="projects-list"></div>
+      </div>
+      <aside class="card about">
+        <h3 data-i18n="about.title">About</h3>
+        <p data-i18n="about.body">I build thoughtful software at the edge of complexity. This space will hold your short bio in English and Italian. Replace this placeholder later.</p>
+      </aside>
+    </section>
+
+    <!-- Passions section with subpages (books, music, etc.) -->
+    <section id="passions" class="grid" aria-labelledby="passions-title">
+      <div class="card" style="grid-column: span 12;">
+        <h2 id="passions-title" data-i18n="passions.title">Passions</h2>
+        <div class="tabs" role="tablist" aria-label="Passions categories">
+          <button class="tab active" data-cat="books" role="tab" aria-selected="true" data-i18n="passions.tabs.books">Books</button>
+          <button class="tab" data-cat="music" role="tab" aria-selected="false" data-i18n="passions.tabs.music">Music</button>
+          <button class="tab" data-cat="film" role="tab" aria-selected="false" data-i18n="passions.tabs.film">Films</button>
+          <button class="tab" data-cat="other" role="tab" aria-selected="false" data-i18n="passions.tabs.other">Other</button>
+        </div>
+        <div id="passions-list" class="projects-list" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="about" class="grid" aria-labelledby="about-title" style="padding-top:0">
+      <div class="card" style="grid-column: span 12;">
+        <h2 id="about-title" data-i18n="about.fullTitle">About Me</h2>
+        <p data-i18n="about.long">Write a 3–6 sentence bio here. Mention interests in chaos theory, bifurcation diagrams, neural networks, and how they inform your design/engineering approach.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="grid" aria-labelledby="contact-title" style="padding-top:0">
+      <div class="card" style="grid-column: span 12;">
+        <h2 id="contact-title" data-i18n="contact.title">Contact</h2>
+        <p data-i18n="contact.text">Prefer email? <a href="mailto:your.name@email.com">your.name@email.com</a>. You can also reach me on <a href="#" aria-label="LinkedIn profile">LinkedIn</a> or <a href="#" aria-label="GitHub profile">GitHub</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> <span id="footer-name">Your Name</span></span>
+      <a href="#" class="btn" data-i18n="cta.downloadCV">Download CV</a>
+    </div>
+  </footer>
+
+  <script>
+    // ---------- Simple i18n dictionary ----------
+    const DICT = {
+      en: {
+        nav: { projects: 'Projects', passions: 'Passions', about: 'About', contact: 'Contact' },
+        hero: { pill: 'Between order and chaos', tagline: '— patterns emerge where noise meets meaning.', sub: 'Exploring logistic maps, neural dynamics, and human‑centered systems through code.', role: 'Creative Engineer · ML / Systems · Research‑minded' },
+        recap: { title: 'Brief Recap', text: 'A concise overview of selected works—interactive systems, ML tools, and experimental visualizations—linking theory to practice.' },
+        projects: { title: 'Projects' },
+        passions: { title: 'Passions', tabs: { books: 'Books', music: 'Music', film: 'Films', other: 'Other' } },
+        about: { title: 'About', body: 'I build thoughtful software at the edge of complexity. This space will hold your short bio in English and Italian. Replace this placeholder later.', fullTitle: 'About Me', long: 'Write a 3–6 sentence bio here. Mention interests in chaos theory, bifurcation diagrams, neural networks, and how they inform your design/engineering approach.' },
+        contact: { title: 'Contact', text: 'Prefer email? ', link: 'Email me' },
+        cta: { downloadCV: 'Download CV' },
+        cites: { heading: 'Citations' }
+      },
+      it: {
+        nav: { projects: 'Progetti', passions: 'Passioni', about: 'Chi sono', contact: 'Contatti' },
+        hero: { pill: 'Tra ordine e caos', tagline: '— i pattern emergono dove il rumore incontra il senso.', sub: 'Esploro mappe logistiche, dinamiche neurali e sistemi human‑centered attraverso il codice.', role: 'Creative Engineer · ML / Systems · Ricerca' },
+        recap: { title: 'Breve Riepilogo', text: 'Una panoramica sintetica di lavori selezionati—sistemi interattivi, strumenti ML e visualizzazioni sperimentali—dal pensiero alla pratica.' },
+        projects: { title: 'Progetti' },
+        passions: { title: 'Passioni', tabs: { books: 'Libri', music: 'Musica', film: 'Film', other: 'Altro' } },
+        about: { title: 'Chi sono', body: 'Costruisco software consapevole al confine della complessità. Qui andrà la tua bio breve in italiano e inglese. Sostituisci questo testo.', fullTitle: 'Su di me', long: 'Scrivi qui una bio di 3–6 frasi. Cita mappa logistica, diagrammi di biforcazione, reti neurali e come guidano il tuo approccio.' },
+        contact: { title: 'Contatti', text: 'Preferisci l\'email? ', link: 'Scrivimi' },
+        cta: { downloadCV: 'Scarica CV' },
+        cites: { heading: 'Citazioni' }
+      }
+    };
+
+    const state = { lang: 'en' };
+
+    function setLang(lang){
+      state.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const path = el.getAttribute('data-i18n').split('.');
+        let cur = DICT[lang];
+        for (const p of path) cur = cur?.[p];
+        if (typeof cur === 'string') el.textContent = cur;
+      });
+      document.getElementById('lang-en').classList.toggle('active', lang==='en');
+      document.getElementById('lang-it').classList.toggle('active', lang==='it');
+      document.getElementById('lang-en').setAttribute('aria-checked', lang==='en');
+      document.getElementById('lang-it').setAttribute('aria-checked', lang==='it');
+      document.documentElement.lang = lang;
+    }
+
+    document.getElementById('lang-en').addEventListener('click', ()=>setLang('en'));
+    document.getElementById('lang-it').addEventListener('click', ()=>setLang('it'));
+
+    // ---------- Projects placeholder data ----------
+    const PROJECTS = [
+      { title: 'Chaotic Sketches', desc: 'Interactive explorations of logistic maps and bifurcations in the browser.', tags: ['JavaScript','Canvas','Math'], url: '#', citations: [
+        { label: 'May, R. M. (1976). Simple mathematical models...', url: '#' }
+      ] },
+      { title: 'Neural Attractors', desc: 'Visual toolkit for recurrent nets and dynamical systems.', tags: ['Python','RNN','Visualization'], url: '#', citations: [] },
+      { title: 'Signal Garden', desc: 'Procedural generative art driven by real‑time signals.', tags: ['WebGL','Realtime'], url: '#', citations: [] }
+    ];
+
+    function renderProjects(){
+      const wrap = document.getElementById('projects-list');
+      wrap.innerHTML = '';
+      PROJECTS.forEach(p => {
+        const card = document.createElement('article');
+        card.className = 'project-card';
+        const cites = (p.citations && p.citations.length) ? `
+          <div class="citations">
+            <h4 data-i18n="cites.heading">${DICT[state.lang].cites.heading}</h4>
+            <ul>${p.citations.map(c=>`<li><a href="${c.url}">${c.label}</a></li>`).join('')}</ul>
+          </div>` : '';
+        card.innerHTML = `
+          <h3>${p.title}</h3>
+          <p>${p.desc}</p>
+          <div class="tags">${p.tags.map(t=>`<span class=\"tag\">${t}</span>`).join('')}</div>
+          <a class="cta" href="${p.url}">View project →</a>
+          ${cites}
+        `;
+        wrap.appendChild(card);
+      });
+    }
+
+    // ---------- Bifurcation diagram background ----------
+    // Draws an animated logistic map bifurcation diagram on a canvas as the page background.
+    const canvas = document.getElementById('bifurcation');
+    const ctx = canvas.getContext('2d');
+
+    function resize(){
+      canvas.width = window.innerWidth * devicePixelRatio;
+      canvas.height = window.innerHeight * devicePixelRatio;
+      canvas.style.width = window.innerWidth + 'px';
+      canvas.style.height = window.innerHeight + 'px';
+    }
+    window.addEventListener('resize', ()=>{ resize(); needsRedraw = true; });
+
+    let needsRedraw = true;
+    let rStart = 2.5, rEnd = 4.0;
+    let sweep = 0; // 0..1 for subtle animated shift
+
+    function drawBifurcation(){
+      if (!needsRedraw) return;
+      needsRedraw = false;
+      const w = canvas.width, h = canvas.height;
+      ctx.clearRect(0,0,w,h);
+
+      // fade background
+      ctx.fillStyle = '#0a0d12';
+      ctx.fillRect(0,0,w,h);
+
+      // parameters
+      const margin = 18 * devicePixelRatio;
+      const cols = Math.min(1600, Math.floor(w));
+      const iters = 90; // denser points per r
+      const burn = 120;  // longer burn-in for full bifurcation
+
+      // gradient using the two accent colors
+      const grad = ctx.createLinearGradient(0,0,w,0);
+      grad.addColorStop(0, getComputedStyle(document.documentElement).getPropertyValue('--accent-1').trim());
+      grad.addColorStop(1, getComputedStyle(document.documentElement).getPropertyValue('--accent-2').trim());
+      ctx.fillStyle = grad;
+
+      for (let i=0;i<cols;i++){
+        const r = rStart + (rEnd - rStart) * i/(cols-1);
+        let x = 0.374 + 0.5*Math.sin((i/cols + sweep)*Math.PI*2); // varying seed for subtle motion
+        // burn-in
+        for (let k=0;k<burn;k++) x = r*x*(1-x);
+        for (let k=0;k<iters;k++){
+          x = r*x*(1-x);
+          const px = margin + (w - 2*margin) * (i/(cols-1));
+          const py = margin + (h - 2*margin) * (1 - x);
+          // tiny point for density
+          ctx.fillRect(px, py, 1, 1);
+        }
+      }
+
+      // subtle vignette
+      const vgrad = ctx.createRadialGradient(w*0.5,h*0.4,0, w*0.5,h*0.4, Math.max(w,h)*0.6);
+      vgrad.addColorStop(0,'rgba(0,0,0,0)');
+      vgrad.addColorStop(1,'rgba(0,0,0,0.35)');
+      ctx.fillStyle = vgrad;
+      ctx.fillRect(0,0,w,h);
+    }
+
+    function tick(){
+      sweep = (sweep + 0.0015) % 1;
+      // request redraw at a low rate for subtle motion
+      needsRedraw = true;
+      drawBifurcation();
+      requestAnimationFrame(tick);
+    }
+
+    // ---------- Passions data & rendering ----------
+    const PASSIONS = {
+      books: [
+        { title: 'Nonlinear Dynamics and Chaos', desc: 'Foundational concepts with applications.', citations: [ { label: 'Strogatz, S. H. (2015)', url: '#' } ] },
+        { title: 'Chaos: Making a New Science', desc: 'Popular history of chaos theory.', citations: [ { label: 'Gleick, J. (1987)', url: '#' } ] }
+      ],
+      music: [
+        { title: 'Steve Reich — Music for 18 Musicians', desc: 'Pattern, phase, emergence.', citations: [] }
+      ],
+      film: [
+        { title: 'Pi (1998)', desc: 'Obsession with patterns.', citations: [] }
+      ],
+      other: []
+    };
+
+    function renderPassions(cat='books'){
+      const list = document.getElementById('passions-list');
+      list.innerHTML = '';
+      (PASSIONS[cat]||[]).forEach(item => {
+        const card = document.createElement('article');
+        card.className = 'project-card';
+        const cites = (item.citations && item.citations.length) ? `
+          <div class=\"citations\"><h4 data-i18n=\"cites.heading\">${DICT[state.lang].cites.heading}</h4><ul>${item.citations.map(c=>`<li><a href=\"${c.url}\">${c.label}</a></li>`).join('')}</ul></div>` : '';
+        card.innerHTML = `<h3>${item.title}</h3><p>${item.desc}</p>${cites}`;
+        list.appendChild(card);
+      });
+    }
+
+    // Tabs logic + hash routing
+    document.querySelectorAll('#passions .tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#passions .tab').forEach(b=>{ b.classList.toggle('active', b===btn); b.setAttribute('aria-selected', b===btn) });
+        const cat = btn.getAttribute('data-cat');
+        renderPassions(cat);
+        history.replaceState(null, '', `#passions/${cat}`);
+      });
+    });
+
+    function route(){
+      try {
+        const hash = location.hash.replace('#','');
+        if (hash.startsWith('passions/')){
+          const cat = hash.split('/')[1] || 'books';
+          const target = document.querySelector(`#passions .tab[data-cat="${cat}"]`) || document.querySelector('#passions .tab[data-cat="books"]');
+          target.click();
+          document.getElementById('passions').scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      } catch(e) { console.error('Routing error', e); }
+    }
+    window.addEventListener('hashchange', route);
+
+    // ---------- Init ----------
+    resize();
+    setLang('en');
+    renderProjects();
+    document.getElementById('year').textContent = new Date().getFullYear();
+    renderPassions('books');
+    route();
+    tick();
+
+    // ---------- Quick personalization hooks ----------
+    // Replace these two lines later with your actual name and avatar url.
+    const YOUR_NAME = 'Your Name';
+    const AVATAR_URL = '';// e.g., 'assets/avatar.jpg'
+    document.getElementById('your-name').textContent = YOUR_NAME;
+    document.getElementById('name-slot').textContent = YOUR_NAME;
+    document.getElementById('footer-name').textContent = YOUR_NAME;
+    if (AVATAR_URL) document.getElementById('avatar').style.backgroundImage = `url(${AVATAR_URL})`;
+
+    // ---------- Lightweight tests (console) ----------
+    (function runTests(){
+      try {
+        console.assert(document.querySelectorAll('#projects-list .project-card').length === PROJECTS.length, 'Projects render count should match');
+        const activeTab = document.querySelector('#passions .tab.active');
+        const cat = activeTab ? activeTab.getAttribute('data-cat') : 'books';
+        const expected = (PASSIONS[cat]||[]).length;
+        console.assert(document.querySelectorAll('#passions-list .project-card').length === expected, 'Passions render count should match');
+        console.log('✔ Basic render tests passed');
+      } catch(e){ console.warn('Tests encountered an error', e); }
+    })();
+  </script>
+</body>
+</html>
