@@ -94,6 +94,11 @@
       background: #0f121a center/cover no-repeat; }
     .name { font-size: 22px; font-weight: 700; }
 
+    .hero .about-card {
+      margin-top: 28px;      /* space from the avatar block */
+      max-width: 900px;      /* same width rhythm as tagline */
+    }
+
     .grid { max-width: 1100px; margin: 0 auto; padding: 0 20px 80px; display: grid; gap: 18px; grid-template-columns: repeat(12, 1fr); }
     .card { grid-column: span 12; background: linear-gradient(180deg, #0f121a, #0c0f15);
       border: 1px solid #1a1f2b; border-radius: 18px; padding: 18px; box-shadow: 0 20px 50px rgba(0,0,0,0.35);
@@ -168,9 +173,11 @@
           </div>
         </div>
       </div>
-      <div class="card" role="region" aria-labelledby="recap-title">
-        <h3 id="recap-title" data-i18n="recap.title">Bio</h3>
-        <p data-i18n="recap.text">A concise overview of selected works—interactive systems, ML tools, and experimental visualizations—linking theory to practice.</p>
+      <div class="card about-card" role="region" aria-labelledby="hero-about-title">
+        <h3 id="hero-about-title" data-i18n="about.heroTitle">About Me</h3>
+        <p data-i18n="about.heroBody">
+          I explore the edge between order and chaos through data, deep learning, and generative systems. My work blends research, engineering, and aesthetics to build tools and stories from complex signals.
+        </p>
       </div>
     </section>
 
@@ -233,7 +240,15 @@
         about: { title: 'About', body: 'I build thoughtful software at the edge of complexity. This space will hold your short bio in English and Italian. Replace this placeholder later.', fullTitle: 'About Me', long: 'Write a 3–6 sentence bio here. Mention interests in chaos theory, bifurcation diagrams, neural networks, and how they inform your design/engineering approach.' },
         contact: { title: 'Contact', text: 'Prefer email? ', link: 'Email me' },
         cta: { downloadCV: 'Download CV' },
-        cites: { heading: 'Citations' }
+        cites: { heading: 'Citations' },
+        about: { title: 'About',
+            body: 'I build thoughtful software at the edge of complexity. This space will hold your short bio in English and Italian. Replace this placeholder later.',
+            fullTitle: 'About Me',
+            long: 'Write a 3–6 sentence bio here. Mention interests in chaos theory, bifurcation diagrams, neural networks, and how they inform your design/engineering approach.',
+            heroTitle: 'About Me',
+            heroBody: 'I explore the edge between order and chaos through data, deep learning, and generative systems. My work blends research, engineering, and aesthetics to build tools and stories from complex signals.'
+        },
+        
       },
       it: {
         nav: { projects: 'Progetti', passions: 'Passioni', about: 'Chi sono', contact: 'Contatti' },
@@ -244,7 +259,16 @@
         about: { title: 'Chi sono', body: 'Costruisco software consapevole al confine della complessità. Qui andrà la tua bio breve in italiano e inglese. Sostituisci questo testo.', fullTitle: 'Su di me', long: 'Scrivi qui una bio di 3–6 frasi. Cita mappa logistica, diagrammi di biforcazione, reti neurali e come guidano il tuo approccio.' },
         contact: { title: 'Contatti', text: 'Preferisci l\'email? ', link: 'Scrivimi' },
         cta: { downloadCV: 'Scarica CV' },
-        cites: { heading: 'Citazioni' }
+        cites: { heading: 'Citazioni' }, 
+        about: {
+          title: 'Chi sono',
+          body: 'Costruisco software consapevole al confine della complessità. Qui andrà la tua bio breve in italiano e inglese. Sostituisci questo testo.',
+          fullTitle: 'Su di me',
+          long: 'Scrivi qui una bio di 3–6 frasi. Cita mappa logistica, diagrammi di biforcazione, reti neurali e come guidano il tuo approccio.',
+          heroTitle: 'Su di me',
+          heroBody: 'Esploro il confine tra ordine e caos tramite dati, deep learning e sistemi generativi. Unisco ricerca, ingegneria ed estetica per creare strumenti e narrazioni a partire da segnali complessi.'
+        },
+
       }
     };
 
