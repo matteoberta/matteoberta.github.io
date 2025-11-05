@@ -48,17 +48,48 @@
     .pill { padding: 6px 10px; border-radius: 999px; background: #171a25; border: 1px solid #212633; color: var(--muted); font-size: 12px; }
 
     .hero {
-      position: relative; isolation: isolate;
-      max-width: 1100px; margin: 0 auto; padding: 64px 20px 40px 20px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px;
+      max-width: 1200px; /* wider total area */
+      margin: 0 auto;
+      padding: 80px 40px; /* more breathing room */
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      text-align: center;
     }
     .bg-canvas { position: fixed; inset: 0; z-index: -1; opacity: 0.8; }
 
-    .tagline { font-size: clamp(28px, 5vw, 56px); font-weight: 800; letter-spacing: -0.8px; line-height: 1.05; }
-    .tagline .accent { background: linear-gradient(90deg, var(--accent-1), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .subtitle { margin-top: 14px; color: var(--muted); font-size: clamp(14px, 2vw, 18px); }
-
-    .id-card { display: grid; grid-template-columns: 88px 1fr; gap: 14px; align-items: center; margin-top: 24px; }
+    .tagline {
+      max-width: 900px; /* widen text block */
+      font-size: clamp(28px, 5vw, 56px);
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      line-height: 1.1;
+      margin-top: 10px;
+      margin-bottom: 16px;
+    }
+    
+    .tagline .accent {
+      display: block; /* forces it on its own line */
+      margin-top: 0.4em;
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .subtitle {
+      max-width: 700px;
+      margin: 0 auto 24px auto;
+      color: var(--muted);
+    }
+    
+    .id-card {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
     .avatar { width: 88px; height: 88px; border-radius: 50%; border: 2px solid color-mix(in srgb, var(--accent-1) 50%, #222);
       background: #0f121a center/cover no-repeat; }
     .name { font-size: 22px; font-weight: 700; }
