@@ -1,4 +1,4 @@
-# Matteo Berta — Portfolio (GitHub Pages)
+# Portfolio - How to use it 
 
 This repository contains the code for **matteoberta.github.io**, a bilingual (English/Italian) personal portfolio website inspired by chaos theory and the logistic map.
 
