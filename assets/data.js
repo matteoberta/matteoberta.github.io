@@ -9,42 +9,6 @@ window.RESEARCH = {
   "projects": [],
   "venues": [],
   "references": [
-    {
-      "id": "bourtoule2021",
-      "title": "Machine Unlearning",
-      "authors": "Bourtoule et al.",
-      "venue": "IEEE Symposium on Security and Privacy",
-      "year": 2021,
-      "url": "https://arxiv.org/abs/1912.03817",
-      "bib": "@inproceedings{bourtoule2021, title={Machine Unlearning}, author={Bourtoule, Lucas and Chandrasekaran, Varun and Choquette-Choo, Christopher A. and Jia, Hengrui and Travers, Adelin and Zhang, Baiwu and Lie, David and Papernot, Nicolas}, booktitle={IEEE Symposium on Security and Privacy}, year={2021}}"
-    },
-    {
-      "id": "guo2020",
-      "title": "Certified Data Removal from Machine Learning Models",
-      "authors": "Guo, Goldstein, Hannun & van der Maaten",
-      "venue": "ICML",
-      "year": 2020,
-      "url": "https://proceedings.mlr.press/v119/guo20c.html",
-      "bib": "@inproceedings{guo2020, title={Certified Data Removal from Machine Learning Models}, author={Guo, Chuan and Goldstein, Tom and Hannun, Awni and van der Maaten, Laurens}, booktitle={ICML}, year={2020}}"
-    },
-    {
-      "id": "lorenz1963",
-      "title": "Deterministic Nonperiodic Flow",
-      "authors": "Edward N. Lorenz",
-      "venue": "Journal of the Atmospheric Sciences",
-      "year": 1963,
-      "url": "https://doi.org/10.1175/1520-0469(1963)020%3C0130:DNF%3E2.0.CO;2",
-      "bib": "@article{lorenz1963, title={Deterministic Nonperiodic Flow}, author={Lorenz, Edward N.}, journal={Journal of the Atmospheric Sciences}, volume={20}, pages={130--141}, year={1963}}"
-    },
-    {
-      "id": "sompolinsky1988",
-      "title": "Chaos in Random Neural Networks",
-      "authors": "Sompolinsky, Crisanti & Sommers",
-      "venue": "Physical Review Letters",
-      "year": 1988,
-      "url": "https://doi.org/10.1103/PhysRevLett.61.259",
-      "bib": "@article{sompolinsky1988, title={Chaos in Random Neural Networks}, author={Sompolinsky, H. and Crisanti, A. and Sommers, H. J.}, journal={Physical Review Letters}, volume={61}, pages={259--262}, year={1988}}"
-    }
   ],
   "terms": [
     {
