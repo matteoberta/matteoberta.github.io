@@ -41,3 +41,50 @@ if($('#lorenz')){
  function draw(){const box=canvas.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);canvas.width=box.width*dpr;canvas.height=box.height*dpr;ctx.scale(dpr,dpr);const w=box.width,h=box.height,s=Math.min(w/65,h/57);ctx.clearRect(0,0,w,h);for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i];const project=p=>[w/2+(p[0]*Math.cos(angle)+p[1]*Math.sin(angle))*s,h*.93-p[2]*s];const A=project(a),B=project(b);ctx.beginPath();ctx.moveTo(...A);ctx.lineTo(...B);ctx.strokeStyle=i%500<250?'rgba(52,88,55,.34)':'rgba(109,139,64,.42)';ctx.lineWidth=.65;ctx.stroke();}button.textContent=paused?'Play animation':'Pause animation';if(!paused&&!document.hidden){angle+=.002;raf=requestAnimationFrame(draw);}}
  button.addEventListener('click',()=>{paused=!paused;cancelAnimationFrame(raf);draw();});window.addEventListener('resize',()=>{cancelAnimationFrame(raf);draw();});document.addEventListener('visibilitychange',()=>{cancelAnimationFrame(raf);if(!document.hidden)draw();});media.addEventListener('change',e=>{paused=e.matches;cancelAnimationFrame(raf);draw();});draw();
 }
+
+// Sort each publication list and initially show three papers.
+document.querySelectorAll('.publication-group').forEach((group, index) => {
+  const list = group.querySelector('.paper-list');
+  const button = group.querySelector('.papers-toggle');
+  const label = button.querySelector('.papers-toggle-label');
+  const arrow = button.querySelector('.papers-toggle-arrow');
+
+  const papers = Array.from(list.children)
+    .filter(item => item.classList.contains('paper'))
+    .sort((a, b) => {
+      const yearA = Number(a.dataset.year) || 0;
+      const yearB = Number(b.dataset.year) || 0;
+
+      return yearB - yearA;
+    });
+
+  // Move the existing entries into newest-first order.
+  papers.forEach(paper => list.appendChild(paper));
+
+  list.id = list.id || `publication-list-${index + 1}`;
+  button.setAttribute('aria-controls', list.id);
+
+  // No expansion button is needed for three papers or fewer.
+  button.hidden = papers.length <= 3;
+
+  function updateList(expanded) {
+    papers.forEach((paper, paperIndex) => {
+      paper.hidden = !expanded && paperIndex >= 3;
+    });
+
+    button.setAttribute('aria-expanded', String(expanded));
+
+    label.textContent = expanded
+      ? 'Show fewer papers'
+      : `Show all ${papers.length} papers`;
+
+    arrow.textContent = expanded ? '↑' : '↓';
+  }
+
+  button.addEventListener('click', () => {
+    const expanded = button.getAttribute('aria-expanded') === 'true';
+    updateList(!expanded);
+  });
+
+  updateList(false);
+});
