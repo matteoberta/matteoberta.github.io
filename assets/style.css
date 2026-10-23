@@ -1106,3 +1106,9 @@ nav {
     gap: 18px;
   }
 }
+
+/* Space between Highlights, Fieldnotes, and research interests */
+.fieldnotes-intro {
+  margin-top: 40px;
+  margin-bottom: 48px;
+}
