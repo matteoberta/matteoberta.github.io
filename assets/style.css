@@ -1041,3 +1041,29 @@ footer {
     scroll-behavior: auto;
   }
 }
+
+/* Make Fieldnotes prominent in the main navigation */
+nav a[href="taxonomy.html"] {
+  padding: 6px 12px;
+  border-radius: 4px;
+  background: var(--accent);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+nav {
+  align-items: center;
+}
+
+/* Larger Fieldnotes button on the homepage */
+.notebook .fieldnotes-button {
+  position: relative;
+  z-index: 1;
+  margin-top: 12px;
+  padding: 16px 26px;
+  font-size: 17px;
+}
+
+.notebook p {
+  max-width: 580px;
+}
