@@ -671,7 +671,6 @@ nav a {
 .venue-location { margin: 24px 0 8px; font-size: 12px; letter-spacing: .5px; }
 .venue-card h3 { margin-bottom: 12px; font-size: 26px; }
 .venue-content > p:last-child { font-size: 13px; line-height: 1.6; }
-.venue-credit { margin: 20px 0 0; font-size: 10px; line-height: 1.5; }
 .venue-card a:hover { color: var(--accent); }
 
 @media (max-width: 800px) {

@@ -14,11 +14,7 @@ window.RESEARCH = {
       "summary": "Conference on Empirical Methods in Natural Language Processing.",
       "date": "2026",
       "location": "Budapest, Hungary",
-      "image": "assets/budapest.jpg",
-      "photoAuthor": "Elekes Andor",
-      "photoSource": "https://commons.wikimedia.org/wiki/File:Budapest_skyline_from_Gell%C3%A9rt_Hill_(1).jpg",
-      "photoLicense": "CC BY 4.0",
-      "photoLicenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      "image": "assets/budapest.jpg"
     },
     {
       "title": "ECML PKDD 2026",
@@ -26,11 +22,7 @@ window.RESEARCH = {
       "summary": "European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases.",
       "date": "2026",
       "location": "Naples, Italy",
-      "image": "assets/naples.jpg",
-      "photoAuthor": "Sergei Gussev",
-      "photoSource": "https://commons.wikimedia.org/wiki/File:Panorama_view_of_bay_and_the_city_Naples,_Campania,_Italy,_May_2005_(52104979928).jpg",
-      "photoLicense": "CC BY 2.0",
-      "photoLicenseUrl": "https://creativecommons.org/licenses/by/2.0/"
+      "image": "assets/naples.jpg"
     },
     {
       "title": "EDBT/ICDT 2026",
@@ -38,11 +30,7 @@ window.RESEARCH = {
       "summary": "Joint conference on Extending Database Technology and Database Theory.",
       "date": "2026",
       "location": "Tampere, Finland",
-      "image": "assets/tampere.jpg",
-      "photoAuthor": "Tiia Monto",
-      "photoSource": "https://commons.wikimedia.org/wiki/File:Tampere_panorama.jpg",
-      "photoLicense": "CC BY-SA 3.0",
-      "photoLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+      "image": "assets/tampere.jpg"
     }
   ],
   "references": [

@@ -95,7 +95,6 @@ if ($('#venue-list')) {
   <div class="venue-content"><span class="tag">${esc(item.type)}</span>
   <p class="venue-location">${esc(item.location)} · ${esc(item.date)}</p>
   <h3>${esc(item.title)}</h3><p>${esc(item.summary)}</p></div>
-  <p class="venue-credit">Photo: <a href="${safe(item.photoSource)}">${esc(item.photoAuthor)}</a> · <a href="${safe(item.photoLicenseUrl)}">${esc(item.photoLicense)}</a> · cropped &amp; shaded</p>
  </article>`).join('') : '<div class="empty">Conference participation will appear here.</div>';
 }
 document.querySelectorAll('.brand').forEach(el=>el.innerHTML=`${esc(D.name)}<span> / research</span>`);
