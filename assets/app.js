@@ -14,6 +14,29 @@ if (favicon) {
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safe = url => { try { const parsed = new URL(url, location.href); return ['http:', 'https:', 'mailto:'].includes(parsed.protocol) ? esc(parsed.href) : '#'; } catch { return '#'; } };
 const domainLabel = domain => domain === 'Unlearning' ? 'Machine unlearning' : 'Chaos & dynamics';
+// Small inline SVGs keep the contact strip local and inherit the site palette.
+const profileIcons = {
+ email: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>',
+ github: '<path d="M9 19c-4 1-4-2-6-2m12 5v-4a3.5 3.5 0 0 0-1-2.7c3.3-.4 6.8-1.6 6.8-7.3A5.7 5.7 0 0 0 19.3 4a5.2 5.2 0 0 0-.1-4s-1.3-.4-4.2 1.5a14.5 14.5 0 0 0-7.6 0C4.5-.4 3.2 0 3.2 0A5.2 5.2 0 0 0 3.1 4 5.7 5.7 0 0 0 1.6 8c0 5.7 3.5 6.9 6.8 7.3A3.5 3.5 0 0 0 7.4 18v4" transform="translate(1 1) scale(.9)"/>',
+ linkedin: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10v7m0-10v.1M11 17v-7m0 3a3 3 0 0 1 6 0v4"/>',
+ instagram: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor" stroke="none"/>',
+ scholar: '<path d="m2 9 10-6 10 6-10 6L2 9Zm4 3v6c4 3 8 3 12 0v-6M22 9v9"/>'
+};
+const primaryEmail = D.email.split(',')[0].trim();
+const profiles = [
+ {id:'email',label:'Email',url:primaryEmail ? 'mailto:'+primaryEmail : ''},
+ {id:'github',label:'GitHub',url:D.github},
+ {id:'linkedin',label:'LinkedIn',url:D.linkedin},
+ {id:'instagram',label:'Instagram',url:D.instagram},
+ {id:'scholar',label:'Google Scholar',url:D.scholar}
+];
+document.querySelectorAll('.profile-links').forEach(host => {
+ host.innerHTML = profiles.filter(profile => profile.url && safe(profile.url)!=='#').map(profile => {
+  const icon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'+profileIcons[profile.id]+'</svg>';
+  const content = icon+'<span>'+profile.label+'</span>';
+  return '<a class="profile-link" href="'+safe(profile.url)+'">'+content+'</a>';
+ }).join('');
+});
 function notify(message) {
  const toast = $('#toast'); if (!toast) return;
  toast.textContent = message; toast.hidden = false;

@@ -17,7 +17,7 @@ Official instructions: https://docs.github.com/en/pages/getting-started-with-git
 
 Edit `assets/data.js`, a JavaScript object containing the site's content:
 
-- `name`, `email`, `github`, `scholar`: your name and full profile URLs. Leave unused links empty.
+- `name`, `email`, `github`, `linkedin`, `instagram`, `scholar`: your name and full profile URLs. The top contact strip reads these fields; its email link uses the first supplied address. Leave unused links empty to omit them from the strip.
 - `publications`: paper titles, ordered authors, venue, year, track, paper links, full BibTeX, and the featured-paper flag. These records power the publication list and featured-paper content.
 - `findings`: research results beyond publication records. Describe the result, evidence, limitations, and a link to the paper/code. The research log stays hidden while findings and projects are empty.
 - `projects`: current questions and progress, with a status label.

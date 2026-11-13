@@ -4,6 +4,8 @@ window.RESEARCH = {
   "affiliation": "Liris, Université Claude Bernard Lyon 1, Politecnico di Torino",
   "email": "matteo.berta@polito.it, matteo.berta@liris.cnrs.fr",
   "github": "https://github.com/matteoberta",
+  "linkedin": "https://www.linkedin.com/in/matteo-berta-ab87271b8",
+  "instagram": "https://www.instagram.com/mat_be99/",
   "scholar": "https://scholar.google.com/citations?user=b2halSQAAAAJ&hl=en",
   "publications": [
     {
