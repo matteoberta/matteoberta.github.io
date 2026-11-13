@@ -26,9 +26,9 @@
   if (!paused) {
    const center = phase * canvas.width;
    const glow = ctx.createLinearGradient(center - canvas.width * .12, 0, center + canvas.width * .12, 0);
-   glow.addColorStop(0, 'rgba(244,243,237,0)');
-   glow.addColorStop(.5, 'rgba(244,243,237,.8)');
-   glow.addColorStop(1, 'rgba(244,243,237,0)');
+   glow.addColorStop(0, 'rgba(255,250,240,0)');
+   glow.addColorStop(.5, 'rgba(255,250,240,.8)');
+   glow.addColorStop(1, 'rgba(255,250,240,0)');
    ctx.fillStyle = glow;
    ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
@@ -38,7 +38,7 @@
   canvas.width = diagram.width = Math.min(innerWidth, 1600);
   canvas.height = diagram.height = Math.min(innerHeight, 1000);
   plot.clearRect(0, 0, diagram.width, diagram.height);
-  plot.fillStyle = '#54713f';
+  plot.fillStyle = '#335c67';
   const columns = Math.min(canvas.width, 1200);
   for (let column = 0; column < columns; column++) {
    const r = 2.8 + 1.2 * column / (columns - 1);
@@ -124,7 +124,7 @@ if($('#terms')){
 if($('#lorenz')){
  const canvas=$('#lorenz'),ctx=canvas.getContext('2d'),button=$('#motion');const media=matchMedia('(prefers-reduced-motion: reduce)');let paused=media.matches,angle=.35,raf=0;
  const points=[];let x=.1,y=0,z=0;for(let i=0;i<7500;i++){const dt=.005,dx=10*(y-x),dy=x*(28-z)-y,dz=x*y-(8/3)*z;x+=dx*dt;y+=dy*dt;z+=dz*dt;if(i>700)points.push([x,y,z]);}
- function draw(){const box=canvas.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);canvas.width=box.width*dpr;canvas.height=box.height*dpr;ctx.scale(dpr,dpr);const w=box.width,h=box.height,s=Math.min(w/65,h/57);ctx.clearRect(0,0,w,h);for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i];const project=p=>[w/2+(p[0]*Math.cos(angle)+p[1]*Math.sin(angle))*s,h*.93-p[2]*s];const A=project(a),B=project(b);ctx.beginPath();ctx.moveTo(...A);ctx.lineTo(...B);ctx.strokeStyle=i%500<250?'rgba(52,88,55,.34)':'rgba(109,139,64,.42)';ctx.lineWidth=.65;ctx.stroke();}button.textContent=paused?'Play animation':'Pause animation';if(!paused&&!document.hidden){angle+=.002;raf=requestAnimationFrame(draw);}}
+ function draw(){const box=canvas.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);canvas.width=box.width*dpr;canvas.height=box.height*dpr;ctx.scale(dpr,dpr);const w=box.width,h=box.height,s=Math.min(w/65,h/57);ctx.clearRect(0,0,w,h);for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i];const project=p=>[w/2+(p[0]*Math.cos(angle)+p[1]*Math.sin(angle))*s,h*.93-p[2]*s];const A=project(a),B=project(b);ctx.beginPath();ctx.moveTo(...A);ctx.lineTo(...B);ctx.strokeStyle=i%500<250?'rgba(51,92,103,.60)':'rgba(158,42,43,.46)';ctx.lineWidth=.65;ctx.stroke();}button.textContent=paused?'Play animation':'Pause animation';if(!paused&&!document.hidden){angle+=.002;raf=requestAnimationFrame(draw);}}
  button.addEventListener('click',()=>{paused=!paused;cancelAnimationFrame(raf);draw();});window.addEventListener('resize',()=>{cancelAnimationFrame(raf);draw();});document.addEventListener('visibilitychange',()=>{cancelAnimationFrame(raf);if(!document.hidden)draw();});media.addEventListener('change',e=>{paused=e.matches;cancelAnimationFrame(raf);draw();});draw();
 }
 
