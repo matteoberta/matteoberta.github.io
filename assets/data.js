@@ -5,6 +5,80 @@ window.RESEARCH = {
   "email": "matteo.berta@polito.it, matteo.berta@liris.cnrs.fr",
   "github": "https://github.com/matteoberta",
   "scholar": "https://scholar.google.com/citations?user=b2halSQAAAAJ&hl=en",
+  "publications": [
+    {
+      "id": "petrocelli-etal-2026-experts",
+      "year": 2026,
+      "title": "From Experts to Open-Weight Models: a Validated LLM Pipeline for Institutional Economic News Annotation",
+      "authors": "Michele Petrocelli, Andrea Rollin, Matteo Berta, Francesca Zafonte, Simone Monaco, Daniele Apiletti, Tania Cerquitelli",
+      "venue": "EMNLP Industry Track · 2026",
+      "url": "https://aclanthology.org/2026.emnlp-industry.231/",
+      "linkLabel": "Paper ↗",
+      "bib": "@inproceedings{petrocelli-etal-2026-experts,\r\n  title = {From Experts to Open-Weight Models: a Validated {LLM} Pipeline for Institutional Economic News Annotation},\r\n  author = {Petrocelli, Michele and Rollin, Andrea and Berta, Matteo and Zafonte, Francesca and Monaco, Simone and Apiletti, Daniele and Cerquitelli, Tania},\r\n  editor = {Atanasova, Pepa and Haffari, Gholamreza and Wang, Minghan},\r\n  booktitle = {Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing: Industry Track},\r\n  month = oct,\r\n  year = {2026},\r\n  address = {Budapest, Hungary},\r\n  publisher = {Association for Computational Linguistics},\r\n  url = {https://aclanthology.org/2026.emnlp-industry.231/},\r\n  doi = {10.18653/2026.emnlp-industry.231},\r\n  pages = {3854--3869},\r\n  ISBN = {979-8-89176-460-6}\r\n}",
+      "track": "General research",
+      "featured": true
+    },
+    {
+      "id": "petrocelli2026annotation",
+      "year": 2026,
+      "title": "From Human to Scalable Annotation: Teaching LLMs to mimic experts labeling on Economic News Sentiment",
+      "authors": "Michele Petrocelli, Andrea Rollin, Matteo Berta, Francesca Zafonte, Simone Monaco, Salvatore Lo Sardo, Daniele Apiletti, Daria Scacciatelli, Tania Cerquitelli",
+      "venue": "DARLI-AP · EDBT/ICDT Workshops · 2026",
+      "url": "https://ceur-ws.org/Vol-4192/DARLIAP-paper17.pdf",
+      "linkLabel": "PDF ↗",
+      "bib": "@inproceedings{petrocelli2026annotation,\r\n  title = {From Human to Scalable Annotation: Teaching {LLMs} to mimic experts labeling on Economic News Sentiment},\r\n  author = {Petrocelli, Michele and Rollin, Andrea and Berta, Matteo and Zafonte, Francesca and Monaco, Simone and {Lo Sardo}, Salvatore and Apiletti, Daniele and Scacciatelli, Daria and Cerquitelli, Tania},\r\n  booktitle = {Proceedings of the Workshops of the EDBT/ICDT 2026 Joint Conference},\r\n  series = {CEUR Workshop Proceedings},\r\n  volume = {4192},\r\n  year = {2026},\r\n  url = {https://ceur-ws.org/Vol-4192/DARLIAP-paper17.pdf}\r\n}",
+      "track": "General research",
+      "featured": false
+    },
+    {
+      "id": "berta2025diverse",
+      "year": 2025,
+      "title": "Diverse Minds, Collective Mission: Surveying the Development of a Participative EDI Manifesto",
+      "authors": "Matteo Berta, Amin Mantrach, Tania Cerquitelli",
+      "venue": "DARLI-AP · EDBT/ICDT Workshops · 2025",
+      "url": "https://ceur-ws.org/Vol-3946/DARLI-AP-13.pdf",
+      "linkLabel": "PDF ↗",
+      "bib": "@inproceedings{berta2025diverse,\r\n  title = {Diverse Minds, Collective Mission: Surveying the Development of a Participative {EDI} Manifesto},\r\n  author = {Berta, Matteo and Mantrach, Amin and Cerquitelli, Tania},\r\n  booktitle = {Proceedings of the Workshops of the EDBT/ICDT 2025 Joint Conference},\r\n  series = {CEUR Workshop Proceedings},\r\n  volume = {3946},\r\n  year = {2025},\r\n  url = {https://ceur-ws.org/Vol-3946/DARLI-AP-13.pdf}\r\n}",
+      "track": "General research",
+      "featured": false
+    },
+    {
+      "id": "berta2024decoding",
+      "year": 2024,
+      "title": "Decoding Narratives: Towards a Classification Analysis for Stereotypical Patterns in Italian News Headlines",
+      "authors": "Matteo Berta, Salvatore Greco, Giuseppe Tipaldo, Tania Cerquitelli",
+      "venue": "IEEE International Conference on Big Data · 2024",
+      "url": "https://iris.polito.it/retrieve/handle/11583/2996189/777977",
+      "linkLabel": "PDF — accepted manuscript ↗",
+      "bib": "@inproceedings{berta2024decoding,\r\n  title = {Decoding Narratives: Towards a Classification Analysis for Stereotypical Patterns in Italian News Headlines},\r\n  author = {Berta, Matteo and Greco, Salvatore and Tipaldo, Giuseppe and Cerquitelli, Tania},\r\n  booktitle = {2024 IEEE International Conference on Big Data (BigData)},\r\n  pages = {5253--5262},\r\n  publisher = {IEEE},\r\n  year = {2024},\r\n  doi = {10.1109/BigData62323.2024.10825258},\r\n  url = {https://iris.polito.it/handle/11583/2996189}\r\n}",
+      "track": "General research",
+      "featured": false
+    },
+    {
+      "id": "berta2023ginn",
+      "year": 2023,
+      "title": "GINN: Towards Gender InclusioNeural Network",
+      "authors": "Matteo Berta, Bartolomeo Vacchetti, Tania Cerquitelli",
+      "venue": "IEEE International Conference on Big Data · 2023",
+      "url": "https://iris.polito.it/handle/11583/2987325",
+      "linkLabel": "Paper & available files ↗",
+      "bib": "@inproceedings{berta2023ginn,\r\n  title = {{GINN}: Towards Gender InclusioNeural Network},\r\n  author = {Berta, Matteo and Vacchetti, Bartolomeo and Cerquitelli, Tania},\r\n  booktitle = {2023 IEEE International Conference on Big Data (BigData)},\r\n  pages = {4119--4126},\r\n  publisher = {IEEE},\r\n  year = {2023},\r\n  doi = {10.1109/BigData59044.2023.10386328},\r\n  url = {https://iris.polito.it/handle/11583/2987325}\r\n}",
+      "track": "General research",
+      "featured": false
+    },
+    {
+      "id": "berta-cerquitelli-2026-eraserhead",
+      "year": 2026,
+      "title": "Eraserhead at SVELA: Detecting LLM Forgetting via Logit-Space Statistics",
+      "authors": "Matteo Berta, Tania Cerquitelli",
+      "venue": "EVALITA · 2026",
+      "url": "https://aclanthology.org/2026.evalita-1.43.pdf",
+      "linkLabel": "PDF ↗",
+      "bib": "@inproceedings{berta-cerquitelli-2026-eraserhead,\r\n  title = {Eraserhead at {SVELA}: Detecting {LLM} Forgetting via Logit-Space Statistics},\r\n  author = {Berta, Matteo and Cerquitelli, Tania},\r\n  booktitle = {Proceedings of the Ninth Evaluation Campaign of Natural Language Processing and Speech Tools for Italian. Final Workshop (EVALITA 2026)},\r\n  pages = {477--483},\r\n  address = {Bari, Italy},\r\n  publisher = {CEUR Workshop Proceedings},\r\n  month = feb,\r\n  year = {2026},\r\n  url = {https://aclanthology.org/2026.evalita-1.43/}\r\n}",
+      "track": "Machine unlearning & chaos theory",
+      "featured": false
+    }
+  ],
   "findings": [],
   "projects": [],
   "venues": [

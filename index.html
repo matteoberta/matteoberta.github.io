@@ -1,580 +1,77 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta
-      name="description"
-      content="PhD research in machine unlearning, chaotic dynamics and chaotic neural networks."
-    >
-    <meta name="theme-color" content="#fffaf0">
-
-    <title>Matteo — Learning, forgetting &amp; chaos</title>
-
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/style.css">
-
-    <script defer src="assets/data.js"></script>
-    <script defer src="assets/app.js"></script>
-
-    <!-- Portrait appearance -->
-    <style>
-      .portrait {
-        display: block;
-        width: 120px;
-        height: 120px;
-        object-fit: cover;
-        object-position: center;
-        border-radius: 50%;
-        border: 3px solid var(--white);
-        margin-bottom: 24px;
-      }
-    </style>
-  </head>
-
-  <body>
-    <a class="skip" href="#main">Skip to content</a>
-
-    <!-- Header and navigation -->
-    <header>
-      <a class="brand" href="index.html">
-        Matteo<span> / research</span>
-      </a>
-
-      <nav aria-label="Main navigation">
-        <a href="index.html#research">Research</a>
-        <a href="index.html#work">Work</a>
-        <a href="index.html#venues">Venues</a>
-        <a href="taxonomy.html">Fieldnotes ↗</a>
-      </nav>
-    </header>
-
-    <main id="main">
-      <!-- Introduction and animated attractor -->
-      <section class="hero">
-        <div class="hero-copy">
-          <!-- Upload your photograph to assets/portrait.jpg -->
-          <img
-            class="portrait"
-            src="assets/portrait.jpg"
-            alt="Portrait of Matteo Berta"
-            width="120"
-            height="120"
-          >
-
-          <p class="eyebrow">
-            PhD student / Artificial intelligence
-          </p>
-
-          <h1>
-            Learning.<br>
-            Forgetting.<br>
-            <em>Finding order.</em>
-          </h1>
-
-          <p class="intro">
-            I’m Matteo. I study machine unlearning and the complex
-            dynamics of neural networks.
-          </p>
-
-          <p class="muted">
-            Exploring what models retain, how they forget, and how
-            chaotic behavior emerges.
-          </p>
-
-          <div class="actions">
-            <a class="button" href="#research">
-              Explore my research ↘
-            </a>
-
-            <a class="text-link" href="taxonomy.html">
-              Open the fieldnotes ↗
-            </a>
-          </div>
-        </div>
-
-        <figure class="attractor">
-          <canvas
-            id="lorenz"
-            aria-label="Illustration of a Lorenz attractor"
-          ></canvas>
-
-          <figcaption>
-            <span>01 / Deterministic chaos</span>
-
-            <button id="motion" type="button">
-              Pause animation
-            </button>
-          </figcaption>
-
-          <p>Simple rules. Complex trajectories.</p>
-        </figure>
-      </section>
-
-            <!-- HIGHLIGHTS -->
-      <section id="highlights" class="highlights">
-        <div class="highlights-heading">
-          <p class="eyebrow">Highlights</p>
-          <span class="highlights-note">News, events &amp; updates</span>
-        </div>
-      
-        <ul class="highlights-list">
-          <!-- Duplicate this <li> block to add another highlight -->
-          <li class="highlight-item">
-            <span class="tag">Published · EMNLP 2026</span>
-      
-            <h3>New paper at EMNLP 2026</h3>
-      
-            <p>
-              Our paper,
-              <cite>
-                From Experts to Open-Weight Models: A Validated LLM Pipeline
-                for Institutional Economic News Annotation
-              </cite>, is now published in the
-              <a href="https://aclanthology.org/2026.emnlp-industry.231/">
-                EMNLP 2026 Industry Track proceedings ↗
-              </a>.
-            </p>
-          </li>
-        </ul>
-      </section>
-
-      <!-- FIELDNOTES INTRODUCTION -->
-      <aside class="fieldnotes-intro" aria-labelledby="fieldnotes-title">
-        <div>
-          <h2 id="fieldnotes-title">Explore the Fieldnotes</h2>
-      
-          <p>
-            A growing, searchable dictionary of machine unlearning,
-            chaos theory, and neural dynamics. Explore concise definitions,
-            follow connections between concepts, and find references
-            for further reading.
-          </p>
-        </div>
-      
-        <a class="button" href="taxonomy.html">
-          Open Fieldnotes ↗
-        </a>
-      </aside>
-
-      <!-- Research interests -->
-      <section class="strip">
-        <span>Research interests</span>
-        <span>Machine unlearning</span>
-        <span>Chaotic dynamics</span>
-        <span>Neural networks</span>
-      </section>
-
-<!-- MY RESEARCH -->
-<section id="research">
-  <div class="section-head">
-    <p class="eyebrow">01 / Research</p>
-    <h2>My research.</h2>
-
-    <p class="muted">
-      Explore my publications across two research tracks.
-    </p>
-  </div>
-
-  <div class="two-col">
-    <!-- GENERAL RESEARCH -->
-    <article class="topic">
-      <span class="index">[ 01 ]</span>
-      <h3>General research</h3>
-
-      <p>
-        My research contributions across artificial intelligence
-        and related areas, beyond machine unlearning and chaos theory.
-      </p>
-
-      <div class="publication-group">
-        <ul class="paper-list" id="general-papers">
-
-          <!-- PAPER: EMNLP ECONOMIC NEWS ANNOTATION -->
-          <li class="paper" data-year="2026">
-            <h4>
-              From Experts to Open-Weight Models: a Validated LLM Pipeline
-              for Institutional Economic News Annotation
-            </h4>
-
-            <p class="paper-authors">
-              Michele Petrocelli, Andrea Rollin,
-              <strong>Matteo Berta</strong>, Francesca Zafonte,
-              Simone Monaco, Daniele Apiletti, Tania Cerquitelli
-            </p>
-
-            <p class="paper-venue">
-              EMNLP Industry Track · 2026
-            </p>
-
-            <a
-              class="paper-pdf"
-              href="https://aclanthology.org/2026.emnlp-industry.231/"
-            >
-              Paper ↗
-            </a>
-
-            <details class="paper-bibtex">
-              <summary>BibTeX</summary>
-
-              <pre><code>@inproceedings{petrocelli-etal-2026-experts,
-  title = {From Experts to Open-Weight Models: a Validated {LLM} Pipeline for Institutional Economic News Annotation},
-  author = {Petrocelli, Michele and Rollin, Andrea and Berta, Matteo and Zafonte, Francesca and Monaco, Simone and Apiletti, Daniele and Cerquitelli, Tania},
-  editor = {Atanasova, Pepa and Haffari, Gholamreza and Wang, Minghan},
-  booktitle = {Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing: Industry Track},
-  month = oct,
-  year = {2026},
-  address = {Budapest, Hungary},
-  publisher = {Association for Computational Linguistics},
-  url = {https://aclanthology.org/2026.emnlp-industry.231/},
-  doi = {10.18653/2026.emnlp-industry.231},
-  pages = {3854--3869},
-  ISBN = {979-8-89176-460-6}
-}</code></pre>
-            </details>
-          </li>
-
-          <!-- PAPER: ECONOMIC NEWS SENTIMENT -->
-          <li class="paper" data-year="2026">
-            <h4>
-              From Human to Scalable Annotation: Teaching LLMs
-              to mimic experts labeling on Economic News Sentiment
-            </h4>
-
-            <p class="paper-authors">
-              Michele Petrocelli, Andrea Rollin,
-              <strong>Matteo Berta</strong>, Francesca Zafonte,
-              Simone Monaco, Salvatore Lo Sardo, Daniele Apiletti,
-              Daria Scacciatelli, Tania Cerquitelli
-            </p>
-
-            <p class="paper-venue">
-              DARLI-AP · EDBT/ICDT Workshops · 2026
-            </p>
-
-            <a
-              class="paper-pdf"
-              href="https://ceur-ws.org/Vol-4192/DARLIAP-paper17.pdf"
-            >
-              PDF ↗
-            </a>
-
-            <details class="paper-bibtex">
-              <summary>BibTeX</summary>
-
-              <pre><code>@inproceedings{petrocelli2026annotation,
-  title = {From Human to Scalable Annotation: Teaching {LLMs} to mimic experts labeling on Economic News Sentiment},
-  author = {Petrocelli, Michele and Rollin, Andrea and Berta, Matteo and Zafonte, Francesca and Monaco, Simone and {Lo Sardo}, Salvatore and Apiletti, Daniele and Scacciatelli, Daria and Cerquitelli, Tania},
-  booktitle = {Proceedings of the Workshops of the EDBT/ICDT 2026 Joint Conference},
-  series = {CEUR Workshop Proceedings},
-  volume = {4192},
-  year = {2026},
-  url = {https://ceur-ws.org/Vol-4192/DARLIAP-paper17.pdf}
-}</code></pre>
-            </details>
-          </li>
-
-          <!-- PAPER: EDI MANIFESTO -->
-          <li class="paper" data-year="2025">
-            <h4>
-              Diverse Minds, Collective Mission: Surveying the
-              Development of a Participative EDI Manifesto
-            </h4>
-
-            <p class="paper-authors">
-              <strong>Matteo Berta</strong>, Amin Mantrach,
-              Tania Cerquitelli
-            </p>
-
-            <p class="paper-venue">
-              DARLI-AP · EDBT/ICDT Workshops · 2025
-            </p>
-
-            <a
-              class="paper-pdf"
-              href="https://ceur-ws.org/Vol-3946/DARLI-AP-13.pdf"
-            >
-              PDF ↗
-            </a>
-
-            <details class="paper-bibtex">
-              <summary>BibTeX</summary>
-
-              <pre><code>@inproceedings{berta2025diverse,
-  title = {Diverse Minds, Collective Mission: Surveying the Development of a Participative {EDI} Manifesto},
-  author = {Berta, Matteo and Mantrach, Amin and Cerquitelli, Tania},
-  booktitle = {Proceedings of the Workshops of the EDBT/ICDT 2025 Joint Conference},
-  series = {CEUR Workshop Proceedings},
-  volume = {3946},
-  year = {2025},
-  url = {https://ceur-ws.org/Vol-3946/DARLI-AP-13.pdf}
-}</code></pre>
-            </details>
-          </li>
-
-          <!-- PAPER: DECODING NARRATIVES -->
-          <li class="paper" data-year="2024">
-            <h4>
-              Decoding Narratives: Towards a Classification Analysis
-              for Stereotypical Patterns in Italian News Headlines
-            </h4>
-
-            <p class="paper-authors">
-              <strong>Matteo Berta</strong>, Salvatore Greco,
-              Giuseppe Tipaldo, Tania Cerquitelli
-            </p>
-
-            <p class="paper-venue">
-              IEEE International Conference on Big Data · 2024
-            </p>
-
-            <a
-              class="paper-pdf"
-              href="https://iris.polito.it/retrieve/handle/11583/2996189/777977"
-            >
-              PDF — accepted manuscript ↗
-            </a>
-
-            <details class="paper-bibtex">
-              <summary>BibTeX</summary>
-
-              <pre><code>@inproceedings{berta2024decoding,
-  title = {Decoding Narratives: Towards a Classification Analysis for Stereotypical Patterns in Italian News Headlines},
-  author = {Berta, Matteo and Greco, Salvatore and Tipaldo, Giuseppe and Cerquitelli, Tania},
-  booktitle = {2024 IEEE International Conference on Big Data (BigData)},
-  pages = {5253--5262},
-  publisher = {IEEE},
-  year = {2024},
-  doi = {10.1109/BigData62323.2024.10825258},
-  url = {https://iris.polito.it/handle/11583/2996189}
-}</code></pre>
-            </details>
-          </li>
-
-          <!-- PAPER: GINN -->
-          <li class="paper" data-year="2023">
-            <h4>
-              GINN: Towards Gender InclusioNeural Network
-            </h4>
-
-            <p class="paper-authors">
-              <strong>Matteo Berta</strong>, Bartolomeo Vacchetti,
-              Tania Cerquitelli
-            </p>
-
-            <p class="paper-venue">
-              IEEE International Conference on Big Data · 2023
-            </p>
-
-            <a
-              class="paper-pdf"
-              href="https://iris.polito.it/handle/11583/2987325"
-            >
-              Paper &amp; available files ↗
-            </a>
-
-            <details class="paper-bibtex">
-              <summary>BibTeX</summary>
-
-              <pre><code>@inproceedings{berta2023ginn,
-  title = {{GINN}: Towards Gender InclusioNeural Network},
-  author = {Berta, Matteo and Vacchetti, Bartolomeo and Cerquitelli, Tania},
-  booktitle = {2023 IEEE International Conference on Big Data (BigData)},
-  pages = {4119--4126},
-  publisher = {IEEE},
-  year = {2023},
-  doi = {10.1109/BigData59044.2023.10386328},
-  url = {https://iris.polito.it/handle/11583/2987325}
-}</code></pre>
-            </details>
-          </li>
-
-        </ul>
-
-        <button
-          class="papers-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="general-papers"
-          hidden
-        >
-          <span class="papers-toggle-label">Show all papers</span>
-          <span class="papers-toggle-arrow" aria-hidden="true">↓</span>
-        </button>
-      </div>
-    </article>
-
-    <!-- MACHINE UNLEARNING & CHAOS THEORY -->
-    <article class="topic">
-      <span class="index">[ 02 ]</span>
-      <h3>Machine unlearning &amp; chaos theory</h3>
-
-      <p>
-        My work on machine unlearning, chaotic dynamics,
-        and chaotic neural networks.
-      </p>
-
-      <div class="publication-group">
-        <ul class="paper-list" id="unlearning-chaos-papers">
-
-          <!-- PAPER: ERASERHEAD -->
-          <li class="paper" data-year="2026">
-            <h4>
-              Eraserhead at SVELA: Detecting LLM Forgetting
-              via Logit-Space Statistics
-            </h4>
-
-            <p class="paper-authors">
-              <strong>Matteo Berta</strong>, Tania Cerquitelli
-            </p>
-
-            <p class="paper-venue">
-              EVALITA · 2026
-            </p>
-
-            <a
-              class="paper-pdf"
-              href="https://aclanthology.org/2026.evalita-1.43.pdf"
-            >
-              PDF ↗
-            </a>
-
-            <details class="paper-bibtex">
-              <summary>BibTeX</summary>
-
-              <pre><code>@inproceedings{berta-cerquitelli-2026-eraserhead,
-  title = {Eraserhead at {SVELA}: Detecting {LLM} Forgetting via Logit-Space Statistics},
-  author = {Berta, Matteo and Cerquitelli, Tania},
-  booktitle = {Proceedings of the Ninth Evaluation Campaign of Natural Language Processing and Speech Tools for Italian. Final Workshop (EVALITA 2026)},
-  pages = {477--483},
-  address = {Bari, Italy},
-  publisher = {CEUR Workshop Proceedings},
-  month = feb,
-  year = {2026},
-  url = {https://aclanthology.org/2026.evalita-1.43/}
-}</code></pre>
-            </details>
-          </li>
-
-          <!-- Add further unlearning or chaos papers here -->
-
-        </ul>
-
-        <button
-          class="papers-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="unlearning-chaos-papers"
-          hidden
-        >
-          <span class="papers-toggle-label">Show all papers</span>
-          <span class="papers-toggle-arrow" aria-hidden="true">↓</span>
-        </button>
-      </div>
-    </article>
-  </div>
-</section>
-      <!-- Findings and projects: edit their content in assets/data.js -->
-      <section id="work">
-        <div class="section-head">
-          <p class="eyebrow">02 / Research log</p>
-
-          <h2>Findings &amp; work in progress.</h2>
-
-          <p class="muted">
-            A space for results, open questions, and the experiments
-            behind them.
-          </p>
-        </div>
-
-        <h3 class="subhead">Selected findings</h3>
-        <div id="findings"></div>
-
-        <h3 class="subhead">Currently exploring</h3>
-        <div id="projects"></div>
-      </section>
-
-      <!-- Conferences and talks: edit their content in assets/data.js -->
-      <section id="venues">
-        <div class="section-head">
-          <p class="eyebrow">03 / Community</p>
-
-          <h2>Dissemination.</h2>
-
-          <p class="muted">
-            Conferences, workshops, talks, and research visits.
-          </p>
-        </div>
-
-        <div id="venue-list"></div>
-      </section>
-      
-      <!-- FIELDNOTES PREVIEW -->
-      <section class="notebook">
-        <p class="eyebrow">Fieldnotes / A living research dictionary</p>
-      
-        <h2>
-          A guide to unlearning<br>
-          and chaos.
-        </h2>
-      
-        <p>
-          Fieldnotes is a searchable dictionary of concepts in machine
-          unlearning, chaos theory, and neural dynamics.
-        </p>
-      
-        <p>
-          Each entry brings together a concise explanation, references,
-          and related terms to help you navigate these research areas.
-          I’m building and expanding it as my research develops.
-        </p>
-      
-        <a class="button fieldnotes-button" href="taxonomy.html">
-          Explore Fieldnotes ↗
-        </a>
-      
-        <span class="notebook-mark" aria-hidden="true">{ ∂ }</span>
-      </section>
-
-      <!-- Bibliography: edit references in assets/data.js -->
-      <section id="references">
-        <div class="section-head">
-          <p class="eyebrow">04 / References</p>
-
-          <h2>Ideas to build on.</h2>
-
-          <p class="muted">
-            Foundational reading, distinct from my own publications.
-            Copy any entry as BibTeX.
-          </p>
-        </div>
-
-        <div id="reference-list"></div>
-      </section>
-
-      <!-- Contact: edit your links in assets/data.js -->
-      <section id="contact">
-        <p class="eyebrow">Let’s connect</p>
-
-        <h2>
-          Good questions<br>
-          start conversations.
-        </h2>
-
-        <p id="contact-links" class="muted">
-          Contact and academic profiles will be added here.
-        </p>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <span>Matteo · Learning, forgetting, dynamics.</span>
-      <a href="taxonomy.html">Explore the fieldnotes ↗</a>
-    </footer>
-
-    <!-- Notification for citation copying -->
-    <div id="toast" role="status" aria-live="polite"></div>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="">
+<meta name="description" content="Matteo Berta — research in machine unlearning, chaotic dynamics, and neural networks.">
+<title>Matteo Berta — Learning, forgetting, dynamics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css">
+<script defer src="assets/data.js"></script>
+<script defer src="assets/app.js"></script>
+</head>
+<body data-page="home">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header wrap">
+  <a class="site-name" href="index.html">Matteo Berta<span class="site-name-dot">.</span></a>
+  <span class="header-meta">PHD STUDENT / ARTIFICIAL INTELLIGENCE</span>
+  <nav aria-label="Main navigation">
+    <a href="#research">Research</a><a href="#publications">Publications</a><a href="taxonomy.html">Fieldnotes</a><a href="#dissemination">Dissemination</a><a href="#contact">Contact</a>
+  </nav>
+</header>
+<main id="main">
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero-photo"><img src="assets/portrait.jpg" alt="Portrait of Matteo Berta" loading="eager"></div>
+    <div class="hero-copy">
+      <div class="eyebrow">RESEARCH IN ARTIFICIAL INTELLIGENCE</div>
+      <h1 id="hero-title">Learning.<br>Forgetting.<br><em>Finding order.</em></h1>
+      <p class="hero-lede">I'm Matteo. I study <strong>machine unlearning</strong> and the complex dynamics of neural networks.</p>
+      <p class="hero-sub">Exploring what models retain, how they forget, and how chaotic behavior emerges.</p>
+      <div class="hero-actions"><a class="btn btn-red" href="#research">Explore my research <span aria-hidden="true">↗</span></a><a class="text-link" href="taxonomy.html">Open the Fieldnotes <span aria-hidden="true">↗</span></a></div>
+    </div>
+    <div class="hero-science">
+      <div class="science-heading"><span class="eyebrow">DETERMINISTIC CHAOS</span><span class="science-index">LORENZ / 1963</span></div>
+      <canvas id="lorenz" aria-label="Two Lorenz trajectories starting 0.00001 apart: a solid charcoal path with a circular tip and a dashed poppy-red path with a diamond tip separate over time." role="img"></canvas>
+      <div class="lorenz-legend"><span class="original">Original trajectory</span><span class="nearby">Nearby start · Δx = 10⁻⁵</span></div>
+      <div class="science-controls"><span>σ = 10 &nbsp; ρ = 28 &nbsp; β = 8/3</span><div class="lorenz-buttons"><button class="motion-toggle" id="lorenz-restart" type="button">Restart nearby ↺</button><button class="motion-toggle" id="lorenz-toggle" type="button" aria-label="Pause Lorenz animation" aria-pressed="false">Pause</button></div></div>
+      <p class="science-caption">Nearly identical beginnings.<br>Different trajectories.</p>
+    </div>
+  </section>
+  <section id="research" class="research wrap section-rule" aria-labelledby="research-title">
+    <div class="section-kicker">01 / RESEARCH DIRECTIONS</div>
+    <div class="research-intro"><h2 id="research-title">What do models <em>retain</em>?<br>How do they <em>forget</em>?</h2><p>And how does complex behavior emerge from simple rules?</p></div>
+    <div class="research-axes">
+      <article class="axis primary-axis"><span class="axis-num">01 / PRIMARY FOCUS</span><h3>Machine unlearning</h3><p>Understanding and evaluating how learned models forget information, and what it means to remove the influence of training data.</p></article>
+      <article class="axis"><span class="axis-num">02 / RESEARCH DIRECTION</span><h3>Chaotic dynamics</h3><p>Nonlinear behavior, sensitivity to initial conditions, and the emergence of complex trajectories.</p></article>
+      <article class="axis"><span class="axis-num">CROSS-CUTTING THEME</span><h3>Neural networks</h3><p>Learning, memory, and the dynamics of artificial neural systems.</p></article>
+    </div>
+  </section>
+  <section class="featured" aria-labelledby="featured-title">
+    <div class="wrap featured-inner">
+      <div class="featured-copy"><p class="featured-meta">PUBLISHED · EMNLP 2026 · INDUSTRY TRACK</p><h2 id="featured-title">From Experts to Open-Weight Models: a Validated LLM Pipeline for Institutional Economic News Annotation</h2><p class="featured-authors">Michele Petrocelli, Andrea Rollin, <strong>Matteo Berta</strong>, Francesca Zafonte, Simone Monaco, Daniele Apiletti, Tania Cerquitelli</p><a class="btn btn-vanilla" href="https://aclanthology.org/2026.emnlp-industry.231/" target="_blank" rel="noopener noreferrer">Read the paper <span aria-hidden="true">↗</span></a></div>
+      <div class="featured-art" aria-hidden="true"><span class="art-word">EMNLP</span><svg viewBox="0 0 450 310" preserveAspectRatio="xMidYMid meet"><g fill="none" stroke="currentColor" opacity=".19" stroke-width=".7"><path d="M24 231 C 98 10,185 290,252 130 S 370 -5,428 91"/><path d="M24 239 C 98 18,185 282,252 138 S 370 3,428 99"/><path d="M24 247 C 98 26,185 274,252 146 S 370 11,428 107"/><path d="M24 255 C 98 34,185 266,252 154 S 370 19,428 115"/><path d="M24 263 C 98 42,185 258,252 162 S 370 27,428 123"/><path d="M24 271 C 98 50,185 250,252 170 S 370 35,428 131"/><path d="M24 279 C 98 58,185 242,252 178 S 370 43,428 139"/></g></svg></div>
+    </div>
+  </section>
+  <section id="publications" class="publications wrap section-pad" aria-labelledby="pub-title"><div class="section-head"><div class="publications-heading"><span class="section-kicker">02 / SELECTED WORKS</span><h2 id="pub-title">My <em>research.</em></h2></div><p class="section-note">Peer-reviewed publications, papers, and citation records.<br>Complete metadata available for each entry.</p></div><div id="publication-list" class="publication-list"></div><aside class="research-botanical" aria-hidden="true"><img class="research-sunflower" src="assets/schiele-sunflowers-cutout-v2.png" alt="" aria-hidden="true" width="1024" height="1536" loading="lazy" decoding="async"></aside></section>
+  <section id="fieldnotes" class="fieldnotes-band" aria-labelledby="fieldnotes-title"><div class="wrap fieldnotes-layout"><div class="fieldnotes-copy"><span class="section-kicker">03 / FIELDNOTES</span><h2 id="fieldnotes-title">A guide to <em>unlearning</em> and chaos.</h2><p>A living research dictionary. Start with machine unlearning, explore the methods and guarantees, and follow the connections into complex dynamics.</p><a class="btn btn-red" href="taxonomy.html">Explore all 16 concepts <span aria-hidden="true">↗</span></a><p class="graph-legend"><span class="legend-dot red"></span> Machine unlearning <span class="legend-dot slate"></span> Chaos & dynamics</p></div><div class="fieldnotes-graph"><div class="graph-top"><span>CONCEPT RELATIONSHIPS</span><button type="button" class="graph-toggle" data-graph-highlight="all" aria-pressed="false">Highlight both domains</button></div><div id="home-graph" class="concept-graph" data-graph-mode="home" aria-label="Concept network linking machine unlearning and chaotic dynamics; each concept links to its definition"></div><p class="graph-caption">Select a concept to open its definition. Connections reflect the existing Fieldnotes relationships.</p></div></div></section>
+  <span id="venues" class="anchor-alias" aria-hidden="true"></span><section id="dissemination" class="dissemination wrap section-pad" aria-labelledby="dis-title"><div class="section-head"><div><span class="section-kicker">04 / DISSEMINATION</span><h2 id="dis-title">Research, <em>elsewhere.</em></h2></div><p class="section-note">Conferences, conversations, and a personal photographic record of the places where research takes me.</p></div><div class="photo-journal">
+    <figure class="conference"><div class="photo-box" data-photo="budapest"><img src="assets/budapest.jpg" alt="Matteo's photograph of the Parliament building in Budapest at night" loading="lazy"></div><figcaption><span class="photo-meta">2026 / BUDAPEST, HUNGARY</span><strong>EMNLP</strong><span>Conference on Empirical Methods in Natural Language Processing</span></figcaption></figure>
+    <figure class="conference"><div class="photo-box" data-photo="naples"><img src="assets/naples.jpg" alt="Matteo's daytime photograph of Naples and the coast" loading="lazy"></div><figcaption><span class="photo-meta">2026 / NAPLES, ITALY</span><strong>ECML PKDD</strong><span>European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases</span></figcaption></figure>
+    <figure class="conference"><div class="photo-box" data-photo="tampere"><img src="assets/tampere.jpg" alt="Matteo's photograph of two Moomin figures in Tampere" loading="lazy"></div><figcaption><span class="photo-meta">2026 / TAMPERE, FINLAND</span><strong>EDBT / ICDT</strong><span>Joint conference on Extending Database Technology and Database Theory</span></figcaption></figure>
+  </div></section>
+  <section id="work" class="research-log wrap section-pad" hidden aria-labelledby="work-title"><h2 id="work-title">Findings &amp; work in progress.</h2><div id="findings"></div><div id="projects"></div></section>
+<section id="references" class="reading-link wrap"><p>Foundational reading behind the Fieldnotes <a href="taxonomy.html#references">Browse the bibliography ↗</a></p></section>
+
+<section id="contact" class="contact-band"><div class="wrap contact-layout"><div><span class="section-kicker">05 / CONTACT</span><h2>Good questions start <em>conversations.</em></h2></div><div class="contact-links"><a href="mailto:matteo.berta@polito.it">matteo.berta@polito.it ↗</a><a href="mailto:matteo.berta@liris.cnrs.fr">matteo.berta@liris.cnrs.fr ↗</a><div class="social-links"><a href="https://github.com/matteoberta" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://scholar.google.com/citations?user=b2halSQAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></div></div></div></section>
+</main>
+<footer class="site-footer wrap"><span>Matteo · Learning, forgetting, dynamics.</span><span>Research manuscript / 2026</span><a href="#main">Back to top ↑</a></footer>
+<figure class="footer-botanical">
+ <figcaption id="artwork-credits" class="wrap">Botanical details adapted from Egon Schiele · <a href="https://sammlungenonline.albertina.at/en/objects/3218/sonnenblumen"><cite>Sonnenblumen</cite>, 1917 · ALBERTINA</a> · <a href="https://www.artchive.com/artwork/field-of-flowers-egon-schiele-1910-czech-republic/"><cite>Field of Flowers</cite>, 1910 · Artchive</a><br>Background removed with AI assistance; cropped detail. Original reproduction retained.</figcaption>
+ <img src="assets/schiele-field-of-flowers-cutout.png" alt="Flowers adapted from Egon Schiele’s Field of Flowers, with the paper background removed" width="1043" height="1508" loading="lazy" decoding="async">
+</figure>
+<div id="toast" role="status" aria-live="polite" hidden></div>
+</body>
 </html>
