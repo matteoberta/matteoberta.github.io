@@ -34,7 +34,8 @@ document.querySelectorAll('.profile-links').forEach(host => {
  host.innerHTML = profiles.filter(profile => profile.url && safe(profile.url)!=='#').map(profile => {
   const icon = '<svg class="profile-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'+profileIcons[profile.id]+'</svg>';
   const content = icon+'<span>'+profile.label+'</span>';
-  return '<a class="profile-link" href="'+safe(profile.url)+'">'+content+'</a>';
+  const external = profile.id !== 'email' ? ' target="_blank" rel="noopener noreferrer" aria-label="'+profile.label+' (opens in a new tab)"' : '';
+  return '<a class="profile-link" href="'+safe(profile.url)+'"'+external+'>'+content+'</a>';
  }).join('');
 });
 function notify(message) {
