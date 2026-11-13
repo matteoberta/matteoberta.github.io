@@ -89,7 +89,15 @@ function entry(item){return `<article class="entry"><span class="tag">${esc(item
 function fill(selector,items,message){const el=$(selector);if(el)el.innerHTML=items.length?items.map(entry).join(''):`<div class="empty"><p>${message}</p></div>`;}
 fill('#findings',D.findings,'Research findings will appear here, with a short takeaway, supporting evidence, and links to papers or code.');
 fill('#projects',D.projects,'Project updates will appear here: the question, current approach, and next step.');
-fill('#venue-list',D.venues,'Conference, workshop, and talk participation will appear here with dates and contributions.');
+if ($('#venue-list')) {
+ $('#venue-list').innerHTML = D.venues.length ? D.venues.map(item => `<article class="venue-card">
+  <img class="venue-photo" src="${safe(item.image)}" alt="" loading="lazy" decoding="async">
+  <div class="venue-content"><span class="tag">${esc(item.type)}</span>
+  <p class="venue-location">${esc(item.location)} · ${esc(item.date)}</p>
+  <h3>${esc(item.title)}</h3><p>${esc(item.summary)}</p></div>
+  <p class="venue-credit">Photo: <a href="${safe(item.photoSource)}">${esc(item.photoAuthor)}</a> · <a href="${safe(item.photoLicenseUrl)}">${esc(item.photoLicense)}</a> · cropped &amp; shaded</p>
+ </article>`).join('') : '<div class="empty">Conference participation will appear here.</div>';
+}
 document.querySelectorAll('.brand').forEach(el=>el.innerHTML=`${esc(D.name)}<span> / research</span>`);
 if($('#reference-list'))$('#reference-list').innerHTML=D.references.map(r=>`<article class="reference" id="ref-${esc(r.id)}"><div><a href="${safe(r.url)}">${esc(r.title)} ↗</a><p>${esc(r.authors)} · ${esc(r.venue)} · ${r.year}</p></div>${citeButton(r)}</article>`).join('');
 if($('#contact-links')){const links=[['Email',D.email?'mailto:'+D.email:''],['GitHub',D.github],['Google Scholar',D.scholar]].filter(x=>x[1]);if(links.length)$('#contact-links').innerHTML=links.map(([l,u])=>`<a href="${safe(u)}">${l} ↗</a>`).join(' · ');}
