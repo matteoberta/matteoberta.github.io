@@ -1,4 +1,83 @@
 'use strict';
+// A fixed logistic-map diagram: x[n+1] = r*x[n]*(1-x[n]), r in [2.8, 4].
+// Cache the points once per resize; animate only a gentle parameter highlight.
+(() => {
+ const canvas = document.createElement('canvas');
+ canvas.className = 'bifurcation-background';
+ canvas.setAttribute('aria-hidden', 'true');
+ const button = document.createElement('button');
+ button.className = 'background-motion';
+ button.type = 'button';
+ document.body.prepend(canvas);
+ document.body.append(button);
+ const ctx = canvas.getContext('2d');
+ if (!ctx) { canvas.remove(); button.remove(); return; }
+ const diagram = document.createElement('canvas');
+ const plot = diagram.getContext('2d');
+ const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+ let paused = reduced.matches, frame = 0, last = 0, phase = 0;
+ function label() {
+  button.textContent = paused ? 'Play background' : 'Pause background';
+  button.setAttribute('aria-label', paused ? 'Play bifurcation background animation' : 'Pause bifurcation background animation');
+ }
+ function paint() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(diagram, 0, 0);
+  if (!paused) {
+   const center = phase * canvas.width;
+   const glow = ctx.createLinearGradient(center - canvas.width * .12, 0, center + canvas.width * .12, 0);
+   glow.addColorStop(0, 'rgba(244,243,237,0)');
+   glow.addColorStop(.5, 'rgba(244,243,237,.8)');
+   glow.addColorStop(1, 'rgba(244,243,237,0)');
+   ctx.fillStyle = glow;
+   ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+ }
+ function build() {
+  // Bound raster dimensions and iteration count on large/high-DPI screens.
+  canvas.width = diagram.width = Math.min(innerWidth, 1600);
+  canvas.height = diagram.height = Math.min(innerHeight, 1000);
+  plot.clearRect(0, 0, diagram.width, diagram.height);
+  plot.fillStyle = '#54713f';
+  const columns = Math.min(canvas.width, 1200);
+  for (let column = 0; column < columns; column++) {
+   const r = 2.8 + 1.2 * column / (columns - 1);
+   let x = .413;
+   for (let i = 0; i < 600; i++) x = r * x * (1 - x);
+   for (let i = 0; i < 90; i++) {
+    x = r * x * (1 - x);
+    plot.fillRect(column / (columns - 1) * (canvas.width - 1), (1 - x) * canvas.height * .86 + canvas.height * .07, 1, 1);
+   }
+  }
+  paint();
+ }
+ function animate(time) {
+  if (paused || document.hidden) return;
+  if (time - last >= 50) {
+   phase = (phase + Math.min(time - last, 100) / 30000) % 1;
+   last = time;
+   paint();
+  }
+  frame = requestAnimationFrame(animate);
+ }
+ function sync() {
+  cancelAnimationFrame(frame);
+  label();
+  paint();
+  last = performance.now();
+  if (!paused && !document.hidden) frame = requestAnimationFrame(animate);
+ }
+ button.addEventListener('click', () => { paused = !paused; sync(); });
+ reduced.addEventListener('change', event => { paused = event.matches; sync(); });
+ document.addEventListener('visibilitychange', sync);
+ let resizeFrame;
+ window.addEventListener('resize', () => {
+  cancelAnimationFrame(resizeFrame);
+  resizeFrame = requestAnimationFrame(build);
+ });
+ build();
+ sync();
+})();
 const D=window.RESEARCH;
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
