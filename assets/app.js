@@ -74,7 +74,13 @@ function renderGraph(host) {
  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
  const state = { paused: previous ? previous.paused : reduced.matches, dispose() {} };
  graphStates.set(host, state);
- const narrow = innerWidth < 600, width = narrow ? 380 : 800, height = narrow ? 910 : 560;
+ const narrow = innerWidth < 600, width = narrow ? 380 : 800;
+ const verticalScale = narrow ? 1.1 : 1.4, height = (narrow ? 940 : 580)*verticalScale;
+ const renderedWidth = host.getBoundingClientRect().width || width;
+ // SVG text scales with its viewBox: compensate to keep labels at 13 screen pixels.
+ const labelPixels = parseFloat(getComputedStyle(document.documentElement).fontSize)*.8125 || 13;
+ const labelSize = Math.max(14, labelPixels*width/renderedWidth);
+ host.style.setProperty('--graph-label-size',labelSize+'px');
  // Deliberately asymmetric clusters leave space for every multiline label.
  const layouts = narrow ? {
   Unlearning: [[90,55],[265,95],[165,185],[78,275],[275,295],[180,380]],
@@ -86,7 +92,8 @@ function renderGraph(host) {
  const positions = new Map();
  for (const domain of ['Unlearning', 'Chaos']) {
   D.terms.filter(t => t.domain === domain).forEach((term,index) => {
-   const base = layouts[domain][index] || [width/2, height/2];
+   const point = layouts[domain][index] || [width/2, height/verticalScale/2];
+   const base = [point[0],point[1]*verticalScale];
    positions.set(term.id, {base, x:base[0], y:base[1], phase:index*1.83+(domain==='Chaos'?2:0)});
   });
  }
@@ -100,9 +107,9 @@ function renderGraph(host) {
  const edgeMarkup = edges.map(edge => '<path class="graph-edge ' + (D.terms.find(t=>t.id===edge.source).domain==='Chaos'?'chaos':'') + '" data-source="' + esc(edge.source) + '" data-target="' + esc(edge.target) + '" fill="none"/>').join('');
  const nodes = D.terms.map(term => {
   const lines = []; let line = '';
-  for (const word of term.title.split(' ')) { if ((line + ' ' + word).trim().length > 19 && line) { lines.push(line); line = word; } else line = (line + ' ' + word).trim(); } lines.push(line);
+  for (const word of term.title.split(' ')) { if ((line + ' ' + word).trim().length > 16 && line) { lines.push(line); line = word; } else line = (line + ' ' + word).trim(); } lines.push(line);
   const href = $('#concept-list') ? '#' + term.id : 'taxonomy.html#' + term.id;
-  return '<a class="graph-node ' + (term.domain === 'Chaos' ? 'chaos' : '') + '" data-node="' + esc(term.id) + '" href="' + href + '" aria-label="Read ' + esc(term.title) + '"><title>' + esc(term.title) + '</title><circle class="node-halo" r="15"/><circle r="6"/><text text-anchor="middle" y="25">' + lines.map((text,i) => '<tspan x="0" dy="' + (i ? 13 : 0) + '">' + esc(text) + '</tspan>').join('') + '</text></a>';
+  return '<a class="graph-node ' + (term.domain === 'Chaos' ? 'chaos' : '') + '" data-node="' + esc(term.id) + '" href="' + href + '" aria-label="Read ' + esc(term.title) + '"><title>' + esc(term.title) + '</title><circle class="node-halo" r="15"/><circle r="6"/><text text-anchor="middle" y="' + (labelSize*1.5).toFixed(2) + '">' + lines.map((text,i) => '<tspan x="0" dy="' + (i ? labelSize*1.2 : 0) + '">' + esc(text) + '</tspan>').join('') + '</text></a>';
  }).join('');
  host.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + width + ' ' + height + '" role="group" aria-label="Related concepts, grouped by research domain">' + edgeMarkup + nodes + '</svg><div class="graph-motion-controls"><span>Hover or focus to explore connections</span><button class="motion-toggle graph-motion" type="button">Pause map</button></div>';
  const nodeElements = [...host.querySelectorAll('[data-node]')];
@@ -160,7 +167,15 @@ function renderGraph(host) {
  listen(reduced,'change',()=>{state.paused=reduced.matches;paint();sync();});
  const observer = typeof IntersectionObserver!=='undefined' ? new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync();}) : null;
  if(observer)observer.observe(host);
- state.dispose=()=>{cancelAnimationFrame(frame);listeners.forEach(remove=>remove());if(observer)observer.disconnect();};
+ let resizeFrame=0;
+ const sizeObserver = typeof ResizeObserver!=='undefined' ? new ResizeObserver(entries=>{
+  if(Math.abs(entries[0].contentRect.width-renderedWidth)>2) {
+   cancelAnimationFrame(resizeFrame);
+   resizeFrame=requestAnimationFrame(()=>renderGraph(host));
+  }
+ }) : null;
+ if(sizeObserver)sizeObserver.observe(host);
+ state.dispose=()=>{cancelAnimationFrame(frame);cancelAnimationFrame(resizeFrame);listeners.forEach(remove=>remove());if(observer)observer.disconnect();if(sizeObserver)sizeObserver.disconnect();};
  paint(); sync();
 }
 document.querySelectorAll('.concept-graph').forEach(renderGraph);
